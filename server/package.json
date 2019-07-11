@@ -10,11 +10,25 @@
     "start": "micro index.js"
   },
   "dependencies": {
+    "@hapi/joi": "^15.1.0",
+    "bcrypt": "^3.0.6",
+    "email-validator": "^2.0.4",
+    "lodash": "^4.17.14",
     "lowdb": "^1.0.0",
     "micro": "^9.3.4",
-    "microrouter": "^3.1.3"
+    "micro-cors": "^0.1.1",
+    "microrouter": "^3.1.3",
+    "random-hash": "^4.0.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "standard": "^13.0.0"
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^13.0.0",
+    "eslint-config-standard-jsx": "^5.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-standard": "^4.0.0"
   }
 }
