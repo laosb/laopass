@@ -36,7 +36,12 @@ module.exports = {
 
   requiresLogin (func) {
     return async (req, res) => {
-      const token = req.headers['authorization'].split(' ')[1]
+      let token = ''
+      try {
+        token = req.headers['authorization'].split(' ')[1]
+      } catch (e) {
+        if (e) return send(res, 401, { detail: 'Error decoding signature.' })
+      }
       const session = Session.find({ token }).value()
       // Just imitatation. We're not using JWT actually.
       if (!session) return send(res, 401, { detail: 'Error decoding signature.' })
