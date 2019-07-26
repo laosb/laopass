@@ -24,6 +24,8 @@ module.exports = {
 
   async login (req, res) {
     const { email, password } = await json(req)
+    const user = User.find({ email }).value()
+    if (!user) return send(res, 400, { non_field_errors: ['Unable to log in with provided credentials.'] })
     const { passwordHash } = User.find({ email }).value()
     const match = await compare(password, passwordHash)
     if (!match) return send(res, 400, { non_field_errors: ['Unable to log in with provided credentials.'] })
