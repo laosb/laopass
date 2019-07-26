@@ -1,7 +1,7 @@
 const { router, get, post, options/*, put, del */ } = require('microrouter')
 const cors = require('micro-cors')()
 
-const { login, register/*, resetPwd, confirmPwdReset, refreshToken */ } = require('./user')
+const { login, register, /* resetPwd, confirmPwdReset */ refreshToken } = require('./user')
 const { getAllPwd, createPwd/*, getPwd, updatePwd, delPwd */ } = require('./password')
 
 module.exports = cors(router(
@@ -11,7 +11,7 @@ module.exports = cors(router(
   // TODO: Implement those.
   // post('/api/auth/password/reset/', resetPwd),
   // post('/api/auth/password/reset/confirm/', confirmPwdReset),
-  // post('/api/tokens/refresh/', refreshToken),
+  post('/api/tokens/refresh/', refreshToken),
 
   // Password
   get('/api/passwords/', getAllPwd),

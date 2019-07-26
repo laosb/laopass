@@ -34,6 +34,14 @@ module.exports = {
     send(res, 200, { token })
   },
 
+  async refreshToken (req, res) {
+    const { token } = await json(req)
+    const session = Session.find({ token }).value()
+    if (!session) return send(res, 404, { non_field_errors: ['Token is invalid.'] })
+    // Don't actually refresh token - just prevent it from being erased from local storage.
+    return send(res, 200, { token })
+  },
+
   requiresLogin (func) {
     return async (req, res) => {
       let token = ''
